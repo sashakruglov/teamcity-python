@@ -81,9 +81,10 @@ class EchoTeamCityMessages(object):
         if test_id.find("::") < 0:
             test_id += "::top_level"
 
-        test_id = test_id.replace("::()::", "::")
+        replaces = [("::()::", "::"), (".py", ""), (".", "_"), (os.sep, "."), ("/", "."), ("::", ".")]
 
-        test_id = test_id.replace(".", "_").replace(os.sep, ".").replace("/", ".").replace('::', '.')
+        for pattern, replace_to in replaces:
+            test_id = test_id.replace(pattern, replace_to)
 
         return test_id
 
