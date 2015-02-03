@@ -122,8 +122,9 @@ class EchoTeamCityMessages(object):
         """
         orig_test_id = self.format_test_id(report.nodeid)
 
-        suffix = '' if report.when == 'call' else ('_' + report.when)
-        test_id = orig_test_id + suffix
+        # suffix = '' if report.when == 'call' else ('_' + report.when)
+        # test_id = orig_test_id + suffix
+        test_id = orig_test_id
 
         duration = timedelta(seconds=report.duration)
 
